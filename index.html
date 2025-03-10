@@ -1,71 +1,101 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="0; url=mailto:us@loyeeblis?subject=Problem feedback&body=Order ID: 【】%0D%0ADescriptions：【】" />
   <title>Email Form</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    body {
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      font-family: 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      padding: 1rem;
     }
 
     .container {
-      width: 90%;
+      width: 100%;
       max-width: 600px;
       background: white;
-      padding: 2rem;
-      border-radius: 8px;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
 
     h1 {
       text-align: center;
-      color: #333;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .display-section {
       margin-bottom: 1.5rem;
     }
 
-    .form-group {
-      margin-bottom: 1.5rem;
+    .display-section:last-child {
+      margin-bottom: 0;
     }
 
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #666;
+    .label {
+      color: #5c6b7a;
       font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
     }
 
     .content-display {
-      width: 100%;
-      padding: 0.8rem;
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
       border: 1px solid #e9ecef;
-      border-radius: 6px;
+      color: #2c3e50;
       font-size: 1rem;
-      color: #212529;
-      background: transparent;
       line-height: 1.6;
     }
 
     .content-display p {
       margin: 0;
-      padding: 0.5rem 0;
+      padding: 0.25rem 0;
     }
 
-
     @media (max-width: 480px) {
+      body {
+        padding: 0.75rem;
+      }
+
       .container {
         padding: 1.5rem;
       }
-      
+
       h1 {
         font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .label {
+        font-size: 0.9rem;
+      }
+
+      .content-display {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      .container {
+        padding: 2rem;
       }
     }
   </style>
@@ -74,7 +104,7 @@
   <div class="container">
     <h1>Email Template</h1>
     <div class="display-section">
-      <div class="label">Send Email: </div>
+      <div class="label">Send Email:</div>
       <div class="content-display">us@loyeeblis.com</div>
     </div>
     <div class="display-section">
@@ -82,7 +112,7 @@
       <div class="content-display">Problem Feedback</div>
     </div>
     <div class="display-section">
-      <div class="label">Content: </div>
+      <div class="label">Content:</div>
       <div class="content-display">
         <p>Order ID: 【】</p>
         <p>Description: 【】</p>
