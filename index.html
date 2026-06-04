@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>LoyeeBlis Email Template</title>
+  <title>LoyeeBlis Service</title>
   <style>
     :root {
       --primary-bg: linear-gradient(135deg, #f5f7fa, #c3cfe2);
@@ -11,9 +11,7 @@
       --text-primary: #333333;
       --text-secondary: #666666;
       --border-color: #e9ecef;
-      --btn-bg: #2563eb;
-      --btn-hover: #1d4ed8;
-      --btn-active: #1e40af;
+
     }
 
     * {
@@ -81,54 +79,6 @@
       margin: 0.5rem 0;
     }
 
-    .btn-wrapper {
-      text-align: center;
-      margin-top: clamp(1.5rem, 3vw, 2rem);
-    }
-
-    .email-btn {
-      display: inline-block;
-      background: var(--btn-bg);
-      color: #ffffff;
-      border: none;
-      padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(2rem, 6vw, 3.5rem);
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-
-    .email-btn:hover {
-      background: var(--btn-hover);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-    }
-
-    .email-btn:active {
-      background: var(--btn-active);
-      transform: scale(0.97);
-    }
-
-    .status-msg {
-      text-align: center;
-      margin-top: 1rem;
-      font-size: clamp(0.85rem, 2vw, 0.95rem);
-      color: var(--text-secondary);
-      min-height: 1.5em;
-    }
-
-    .status-msg.success {
-      color: #16a34a;
-    }
-
-    .status-msg.fallback {
-      color: #d97706;
-    }
-
     @media (max-width: 480px) {
       .container {
         margin: 0.5rem;
@@ -137,11 +87,6 @@
 
       .content-display {
         padding: 0.8rem;
-      }
-
-      .email-btn {
-        width: 100%;
-        text-align: center;
       }
     }
   </style>
@@ -155,37 +100,33 @@
     </div>
     <div class="display-section">
       <div class="label">Subject:</div>
-      <div class="content-display">After-sales feedback</div>
+      <div class="content-display">Request to Activate Warranty</div>
     </div>
     <div class="display-section">
       <div class="label">Content:</div>
       <div class="content-display">
         <p>Dear LoyeeBlis Service Team,</p>
-        <p>I'm contacting you regarding an issue with my recent purchase. To help resolve this quickly, I've included:</p>
-        <p>1⃣ Order Number: [Enter Your Amazon Order ID Here]</p>
-        <p>2⃣ Order Screenshot: [Attach a screenshot or provide link]</p>
-        <p>3⃣ Describe the Issue: [Explain briefly]</p>
-        <p>Please review the details and let me know the next steps. I appreciate your prompt support!</p>
+        <p>I recently purchased an item from your store and understand the product comes with a manufacturer’s warranty. I’d like to complete warranty activation to keep my purchase fully covered for the next two years.</p>
+        <p>To complete the activation of the warranty service, I have prepared the following information as instructed:</p>
+        <p>Order Number: [Insert your order number here]</p>
+        <p>Order confirmation screenshot: [Attach your screenshot or share a downloadable link here]</p>
+        <p>Please review the attached order screenshot and help activate my warranty. I’m looking forward to your response and prompt issuance of my official warranty certificate.</p>
         <p>Best regards,</p>
         <p>[Your Name]</p>
       </div>
     </div>
-    <div class="btn-wrapper">
-      <a id="emailBtn" class="email-btn" href="#">Open Email Client</a>
-    </div>
-    <div id="statusMsg" class="status-msg"></div>
   </div>
 
   <script>
     (function() {
       var to = 'loyeeblis@outlook.com';
-      var subject = 'After-sales feedback';
+      var subject = 'Request to Activate Warranty';
       var body = 'Dear LoyeeBlis Service Team,\n\n'
-        + 'I\'m contacting you regarding an issue with my recent purchase. To help resolve this quickly, I\'ve included:\n'
-        + '1\uFE0F\u20E3 Order Number: [Enter Your Amazon Order ID Here]\n'
-        + '2\uFE0F\u20E3 Order Screenshot: [Attach a screenshot or provide link]\n'
-        + '3\uFE0F\u20E3 Describe the Issue: [Explain briefly]\n\n'
-        + 'Please review the details and let me know the next steps. I appreciate your prompt support!\n\n'
+        + 'I recently purchased an item from your store and understand the product\u2019s warranty. I\u2019d like to complete warranty activation to keep my purchase fully covered for the next two years.\n\n'
+        + 'To complete the activation of the warranty service, I have prepared the following information as instructed:\n'
+        + 'Order Number: [Insert your order number here]\n'
+        + 'Order confirmation screenshot: [Attach your screenshot or share a downloadable link here]\n\n'
+        + 'Please review the attached order screenshot and help activate my warranty. I\u2019m looking forward to your response and prompt issuance of my official warranty certificate.\n'
         + 'Best regards,\n'
         + '[Your Name]';
 
@@ -193,34 +134,8 @@
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
 
-      var btn = document.getElementById('emailBtn');
-      var statusMsg = document.getElementById('statusMsg');
-
-      btn.href = mailto;
-
-      function openEmail() {
-        var ua = navigator.userAgent || navigator.vendor || window.opera;
-        var isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
-
-        if (isMobile) {
-          window.location.href = mailto;
-        } else {
-          window.open(mailto, '_blank');
-        }
-
-        statusMsg.textContent = 'Email client opened successfully!';
-        statusMsg.className = 'status-msg success';
-      }
-
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openEmail();
-      });
-
-      // Auto-trigger after page load
-      setTimeout(function() {
-        openEmail();
-      }, 800);
+      // Auto-open email client on page load
+      window.location.href = mailto;
     })();
   </script>
 </body>
