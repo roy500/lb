@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=mailto:loyeeblis@outlook.com?subject=After-sales feedback&body=Dear LoyeeBlis Service Team,%0D%0A%0D%0AI’m contacting you regarding an issue with my recent purchase. To help resolve this quickly, I’ve included:%0D%0A1⃣ Order Number: [Enter Your Amazon Order ID Here]%0D%0A2⃣ Order Screenshot: [Attach a screenshot or provide link]%0D%0A3⃣ Describe the Issue: [Explain briefly]%0D%0A%0D%0APlease review the details and let me know the next steps. I appreciate your prompt support!%0D%0A%0D%0ABest regards,%0D%0A[Your Name]%0D%0A" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>LoyeeBlis Email Template</title>
   <style>
     :root {
@@ -11,6 +11,9 @@
       --text-primary: #333333;
       --text-secondary: #666666;
       --border-color: #e9ecef;
+      --btn-bg: #2563eb;
+      --btn-hover: #1d4ed8;
+      --btn-active: #1e40af;
     }
 
     * {
@@ -21,6 +24,7 @@
 
     body {
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -36,6 +40,12 @@
       padding: clamp(1rem, 4vw, 2.5rem);
       border-radius: 12px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -71,14 +81,67 @@
       margin: 0.5rem 0;
     }
 
+    .btn-wrapper {
+      text-align: center;
+      margin-top: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .email-btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: #ffffff;
+      border: none;
+      padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(2rem, 6vw, 3.5rem);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    .email-btn:hover {
+      background: var(--btn-hover);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    }
+
+    .email-btn:active {
+      background: var(--btn-active);
+      transform: scale(0.97);
+    }
+
+    .status-msg {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: clamp(0.85rem, 2vw, 0.95rem);
+      color: var(--text-secondary);
+      min-height: 1.5em;
+    }
+
+    .status-msg.success {
+      color: #16a34a;
+    }
+
+    .status-msg.fallback {
+      color: #d97706;
+    }
+
     @media (max-width: 480px) {
       .container {
-        margin: 1rem;
+        margin: 0.5rem;
         padding: 1rem;
       }
-      
+
       .content-display {
         padding: 0.8rem;
+      }
+
+      .email-btn {
+        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -97,19 +160,68 @@
     <div class="display-section">
       <div class="label">Content:</div>
       <div class="content-display">
-        Dear LoyeeBlis Service Team,</p>
-		</p>
-		I’m contacting you regarding an issue with my recent purchase. To help resolve this quickly, I’ve included:</p>
-		1⃣ Order Number: [Enter Your Amazon Order ID Here]</p>
-		2⃣ Order Screenshot: [Attach a screenshot or provide link]</p>
-		3⃣ Describe the Issue: [Explain briefly]</p>
-		</p>
-		Please review the details and let me know the next steps. I appreciate your prompt support!</p>
-		</p>
-		Best regards,</p>
-		[Your Name]</p>
+        <p>Dear LoyeeBlis Service Team,</p>
+        <p>I'm contacting you regarding an issue with my recent purchase. To help resolve this quickly, I've included:</p>
+        <p>1⃣ Order Number: [Enter Your Amazon Order ID Here]</p>
+        <p>2⃣ Order Screenshot: [Attach a screenshot or provide link]</p>
+        <p>3⃣ Describe the Issue: [Explain briefly]</p>
+        <p>Please review the details and let me know the next steps. I appreciate your prompt support!</p>
+        <p>Best regards,</p>
+        <p>[Your Name]</p>
       </div>
     </div>
+    <div class="btn-wrapper">
+      <a id="emailBtn" class="email-btn" href="#">Open Email Client</a>
+    </div>
+    <div id="statusMsg" class="status-msg"></div>
   </div>
+
+  <script>
+    (function() {
+      var to = 'loyeeblis@outlook.com';
+      var subject = 'After-sales feedback';
+      var body = 'Dear LoyeeBlis Service Team,\n\n'
+        + 'I\'m contacting you regarding an issue with my recent purchase. To help resolve this quickly, I\'ve included:\n'
+        + '1\uFE0F\u20E3 Order Number: [Enter Your Amazon Order ID Here]\n'
+        + '2\uFE0F\u20E3 Order Screenshot: [Attach a screenshot or provide link]\n'
+        + '3\uFE0F\u20E3 Describe the Issue: [Explain briefly]\n\n'
+        + 'Please review the details and let me know the next steps. I appreciate your prompt support!\n\n'
+        + 'Best regards,\n'
+        + '[Your Name]';
+
+      var mailto = 'mailto:' + encodeURIComponent(to)
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      var btn = document.getElementById('emailBtn');
+      var statusMsg = document.getElementById('statusMsg');
+
+      btn.href = mailto;
+
+      function openEmail() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        var isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua.toLowerCase());
+
+        if (isMobile) {
+          window.location.href = mailto;
+        } else {
+          window.open(mailto, '_blank');
+        }
+
+        statusMsg.textContent = 'Email client opened successfully!';
+        statusMsg.className = 'status-msg success';
+      }
+
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openEmail();
+      });
+
+      // Auto-trigger after page load
+      setTimeout(function() {
+        openEmail();
+      }, 800);
+    })();
+  </script>
 </body>
 </html>
