@@ -79,6 +79,38 @@
       margin: 0.5rem 0;
     }
 
+    .send-btn {
+      display: block;
+      width: 100%;
+      padding: clamp(0.8rem, 2vw, 1rem);
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+
+    .send-btn:hover {
+      opacity: 0.9;
+    }
+
+    .send-btn:active {
+      transform: scale(0.98);
+    }
+
+    .hint {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+      margin-top: 0.8rem;
+    }
+
     @media (max-width: 480px) {
       .container {
         margin: 0.5rem;
@@ -118,7 +150,7 @@
   </div>
 
   <script>
-    (function() {
+    window.onload = function() {
       var to = 'loyeeblis@outlook.com';
       var subject = 'Request to Activate Warranty';
       var body = 'Dear LoyeeBlis Service Team,\n\n'
@@ -130,13 +162,10 @@
         + 'Best regards,\n'
         + '[Your Name]';
 
-      var mailto = 'mailto:' + encodeURIComponent(to)
+      window.location.href = 'mailto:' + encodeURIComponent(to)
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
-
-      // Auto-open email client on page load
-      window.location.href = mailto;
-    })();
+    };
   </script>
 </body>
 </html>
