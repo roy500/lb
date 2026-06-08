@@ -1,13 +1,121 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>激活保修服务</title>
-    <meta http-equiv="refresh" content="0; url=mailto:loyeeblis@outlook.com?subject=Request%20to%20Activate%20Warranty&body=Dear%20LoyeeBlis%20Service%20Team%2C%0D%0A%0D%0AI%20recently%20purchased%20an%20item%20from%20your%20store%20and%20understand%20the%20product%20comes%20with%20a%20manufacturer%E2%80%99s%20warranty.%20I%E2%80%99d%20like%20to%20complete%20warranty%20activation%20to%20keep%20my%20purchase%20fully%20covered%20for%20the%20next%20two%20years.%0D%0A%0D%0ATo%20complete%20the%20activation%20of%20the%20warranty%20service%2C%20I%20have%20prepared%20the%20following%20information%20as%20instructed%3A%0D%0A%0D%0AOrder%20Number%3A%20%5BInsert%20your%20order%20number%20here%5D%0D%0A%0D%0AOrder%20confirmation%20screenshot%3A%20%5BAttach%20your%20screenshot%20or%20share%20a%20downloadable%20link%20here%5D%0D%0A%0D%0APlease%20review%20the%20attached%20order%20screenshot%20and%20help%20activate%20my%20warranty.%20I%E2%80%99m%20looking%20forward%20to%20your%20response%20and%20prompt%20issuance%20of%20my%20official%20warranty%20certificate.%0D%0A%0D%0ABest%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D">
-    <link rel="canonical" href="https://lb.loyeeblis.com">
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=mailto:loyeeblis@outlook.com?subject=Request%20to%20Activate%20Warranty&body=Dear%20LoyeeBlis%20Service%20Team%2C%0D%0A%0D%0AI%20recently%20purchased%20an%20item%20from%20your%20store%20and%20understand%20the%20product%20comes%20with%20a%20manufacturer%E2%80%99s%20warranty.%20I%E2%80%99d%20like%20to%20complete%20warranty%20activation%20to%20keep%20my%20purchase%20fully%20covered%20for%20the%20next%20two%20years.%0D%0A%0D%0ATo%20complete%20the%20activation%20of%20the%20warranty%20service%2C%20I%20have%20prepared%20the%20following%20information%20as%20instructed%3A%0D%0A%0D%0AOrder%20Number%3A%20%5BInsert%20your%20order%20number%20here%5D%0D%0A%0D%0AOrder%20confirmation%20screenshot%3A%20%5BAttach%20your%20screenshot%20or%20share%20a%20downloadable%20link%20here%5D%0D%0A%0D%0APlease%20review%20the%20attached%20order%20screenshot%20and%20help%20activate%20my%20warranty.%20I%E2%80%99m%20looking%20forward%20to%20your%20response%20and%20prompt%20issuance%20of%20my%20official%20warranty%20certificate.%0D%0A%0D%0ABest%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D">
+  <link rel="canonical" href="https://lb.loyeeblis.com">
+  <title>LoyeeBlis Service</title>
+  <style>
+    :root {
+      --primary-bg: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      --container-bg: #ffffff;
+      --text-primary: #333333;
+      --text-secondary: #666666;
+      --border-color: #e9ecef;
+
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--primary-bg);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      background: var(--container-bg);
+      padding: clamp(1rem, 4vw, 2.5rem);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--text-primary);
+      margin-bottom: clamp(1rem, 3vw, 2rem);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .display-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .content-display {
+      width: 100%;
+      padding: clamp(0.8rem, 2vw, 1.2rem);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      color: var(--text-primary);
+      background: transparent;
+      line-height: 1.6;
+    }
+
+    .content-display p {
+      margin: 0.5rem 0;
+    }
+    @media (max-width: 480px) {
+      .container {
+        margin: 0.5rem;
+        padding: 1rem;
+      }
+
+      .content-display {
+        padding: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <p>正在打开邮件应用激活保修...</p>
-    <p>如果没有自动跳转，<a href="mailto:loyeeblis@outlook.com?subject=Request%20to%20Activate%20Warranty&body=Dear%20LoyeeBlis%20Service%20Team%2C%0D%0A%0D%0AI%20recently%20purchased%20an%20item%20from%20your%20store%20and%20understand%20the%20product%20comes%20with%20a%20manufacturer%E2%80%99s%20warranty.%20I%E2%80%99d%20like%20to%20complete%20warranty%20activation%20to%20keep%20my%20purchase%20fully%20covered%20for%20the%20next%20two%20years.%0D%0A%0D%0ATo%20complete%20the%20activation%20of%20the%20warranty%20service%2C%20I%20have%20prepared%20the%20following%20information%20as%20instructed%3A%0D%0A%0D%0AOrder%20Number%3A%20%5BInsert%20your%20order%20number%20here%5D%0D%0A%0D%0AOrder%20confirmation%20screenshot%3A%20%5BAttach%20your%20screenshot%20or%20share%20a%20downloadable%20link%20here%5D%0D%0A%0D%0APlease%20review%20the%20attached%20order%20screenshot%20and%20help%20activate%20my%20warranty.%20I%E2%80%99m%20looking%20forward%20to%20your%20response%20and%20prompt%20issuance%20of%20my%20official%20warranty%20certificate.%0D%0A%0D%0ABest%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D">请点击这里</a></p>
+  <div class="container">
+    <h1>Email Template</h1>
+    <div class="display-section">
+      <div class="label">Send Email:</div>
+      <div class="content-display">loyeeblis@outlook.com</div>
+    </div>
+    <div class="display-section">
+      <div class="label">Subject:</div>
+      <div class="content-display">Request to Activate Warranty</div>
+    </div>
+    <div class="display-section">
+      <div class="label">Content:</div>
+      <div class="content-display">
+        <p>Dear LoyeeBlis Service Team,</p>
+        <p>I recently purchased an item from your store and understand the product comes with a manufacturer’s warranty. I’d like to complete warranty activation to keep my purchase fully covered for the next two years.</p>
+        <p>To complete the activation of the warranty service, I have prepared the following information as instructed:</p>
+        <p>Order Number: [Insert your order number here]</p>
+        <p>Order confirmation screenshot: [Attach your screenshot or share a downloadable link here]</p>
+        <p>Please review the attached order screenshot and help activate my warranty. I’m looking forward to your response and prompt issuance of my official warranty certificate.</p>
+        <p>Best regards,</p>
+        <p>[Your Name]</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
