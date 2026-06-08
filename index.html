@@ -111,6 +111,26 @@
       margin-top: 0.8rem;
     }
 
+    .copy-toast {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+    }
+
     @media (max-width: 480px) {
       .container {
         margin: 0.5rem;
@@ -148,11 +168,15 @@
       </div>
     </div>
     <a id="sendEmailBtn" class="send-btn" href="#">Send Email</a>
-    <div class="hint">Tap the button above to open your email client</div>
+    <button id="copyEmailBtn" class="send-btn" style="background: linear-gradient(135deg, #43e97b, #38f9d7); margin-top: 0.8rem;">Copy Email Address</button>
+    <div class="hint">Tap button to open your email client</div>
   </div>
 
+  <!-- Copy success toast -->
+  <div id="copyToast" class="copy-toast">Copied!</div>
+
   <script>
-    window.onload = function() {
+    (function() {
       var to = 'loyeeblis@outlook.com';
       var subject = 'Request to Activate Warranty';
       var body = 'Dear LoyeeBlis Service Team,\n\n'
@@ -168,15 +192,47 @@
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
 
-      // Use a real <a> tag href so iOS/HarmonyOS Safari recognizes the user gesture
+      // Set the <a> tag href so user tap triggers native system dialog
       var btn = document.getElementById('sendEmailBtn');
       btn.href = mailto;
 
-      // Auto-click after 1 second
+      // Try auto-trigger via hidden iframe (works on some Android browsers)
+      // iOS/HarmonyOS will block this, user must tap the button
       setTimeout(function() {
-        btn.click();
-      }, 100);
-    };
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = mailto;
+        document.body.appendChild(iframe);
+        // Clean up iframe after a moment
+        setTimeout(function() {
+          document.body.removeChild(iframe);
+        }, 2000);
+      }, 500);
+
+      // Copy email button
+      var copyBtn = document.getElementById('copyEmailBtn');
+      var toast = document.getElementById('copyToast');
+      copyBtn.addEventListener('click', function() {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(to).then(function() { showToast(); });
+        } else {
+          var textarea = document.createElement('textarea');
+          textarea.value = to;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          textarea.setSelectionRange(0, textarea.value.length);
+          try { document.execCommand('copy'); showToast(); } catch(e) {}
+          document.body.removeChild(textarea);
+        }
+      });
+
+      function showToast() {
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 1500);
+      }
+    })();
   </script>
 </body>
 </html>
