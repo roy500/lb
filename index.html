@@ -167,11 +167,15 @@
       var mailto = 'mailto:' + encodeURIComponent(to)
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
-      window.location.href = mailto;
 
-      // Use a real <a> tag href so iOS Safari recognizes the user gesture
+      // Use a real <a> tag href so iOS/HarmonyOS Safari recognizes the user gesture
       var btn = document.getElementById('sendEmailBtn');
       btn.href = mailto;
+
+      // Auto-click after 1 second
+      setTimeout(function() {
+        btn.click();
+      }, 100);
     };
   </script>
 </body>
